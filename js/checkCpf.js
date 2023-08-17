@@ -1,9 +1,7 @@
 export default function checkingCpf(campo) {
     const cpf = campo.value.replace(/\.|-/g, "");
     if(checkRepeatNumbers(cpf) || checkFirstNumber(cpf) || checkSecondNumber(cpf)){
-        console.log("esse cpf não existe")
-    }else{
-        console.log("Existe")
+        campo.setCustomValidity('Esse CPF não é válido.')
     }
 }
 

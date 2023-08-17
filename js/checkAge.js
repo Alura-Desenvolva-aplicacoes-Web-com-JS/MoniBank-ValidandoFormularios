@@ -1,7 +1,8 @@
 export default function checkLegalAge(campo){
     const bthDate = new Date(campo.value) // data Nascimento
-    validAge(bthDate)
-    console.log(validAge(bthDate))
+    if(!validAge(bthDate)){
+        campo.setCustomValidity('O usuário não é maior de idade')
+    }
 }
 
 function validAge(data){
