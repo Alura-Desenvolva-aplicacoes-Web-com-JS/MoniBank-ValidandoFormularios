@@ -4,6 +4,7 @@ const video = document.querySelector('[data-video]')
 const btnPhoto = document.querySelector('[data-tirar-foto]')
 const canvas = document.querySelector('[data-video-canvas]')
 const msg = document.querySelector('[data-mensagem]')
+const btnSendPhoto = document.querySelector('[data-enviar]')
 
 let imgURL = ""
 
@@ -23,4 +24,15 @@ btnPhoto.addEventListener('click', function() {
 
     fieldCam.style.display = "none"
     msg.style.display = "block"
+})
+
+btnSendPhoto.addEventListener('click', () => {
+    const receiveExistingData = localStorage.getItem("cadastro")
+    const cvtReturn = JSON.parse(receiveExistingData)
+
+    cvtReturn.imagem = imgURL
+
+    localStorage.setItem("cadastro", JSON.stringify(cvtReturn))
+
+    window.location.href = "./abrir-conta-form-3.html"
 })
